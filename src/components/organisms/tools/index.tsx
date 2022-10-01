@@ -12,7 +12,7 @@ export type HistoryInfo = {
 }
 
 const Tools = ({shortcuts, current, onSelect}: {
-    shortcuts?: Shortcuts
+    shortcuts: Shortcuts
     current: Tool
     onSelect<V extends Variant>(tool: Tool<V>, variant: V): void
 }) => {
@@ -22,7 +22,6 @@ const Tools = ({shortcuts, current, onSelect}: {
     currentToolHolder.current = current;
 
     useEffect(() => {
-        if (!shortcuts) return;
         const {cancel} = registerShortcuts(
             shortcuts,
             tools,
@@ -30,7 +29,7 @@ const Tools = ({shortcuts, current, onSelect}: {
             onSelect,
         );
         return () => cancel();
-    }, [shortcuts?.connected]);
+    }, [shortcuts.connected]);
 
     return (
         <Fragment>

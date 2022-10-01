@@ -44,9 +44,11 @@ const Editor = ({shortcuts = shortcutsSingleton}: Props) => {
         setActiveLayer(canvas.topLayer()!.name);
     }
 
-    useEffect(() => {
-        const connectors = { document, commandSink: sendCommand };
+    const connectors = { document, commandSink: sendCommand };
+    if (!shortcuts.connected) {
         shortcuts.connect(connectors);
+    }
+    useEffect(() => {
         const pasteRegistration = shortcuts.register(keys.paste.keystrokes, () => {
             rerender();
             return [pasteCommand()];
