@@ -1,0 +1,30 @@
+
+.screen {
+    color: var(--theme-secondary);
+    background-color: var(--theme-primary);
+    border: 3px solid var(--theme-primary);
+    border-radius: inherit;
+    min-width: 400px;
+}
+
+.screen header {
+    color: var(--theme-primary);
+    background-color: var(--theme-highlight);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.screen header .title {
+}
+
+.screen header .title.current {
+    font-weight: 500;
+}
+
+.screen .body {
+    padding: 5px;
+}

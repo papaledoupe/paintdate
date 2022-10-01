@@ -1,0 +1,24 @@
+.label {
+    vertical-align: middle;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.group {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.group button:first-of-type {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.group button {
+    border-radius: 0;
+}
+
+.group button:last-of-type {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.column:not(.last) {
+    margin-right: 10px;
+}

@@ -1,0 +1,7 @@
+.raster {
+	/* https://developer.mozilla.org/en-US/docs/Games/Techniques/Crisp_pixel_art_look */
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-crisp-edges;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}

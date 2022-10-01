@@ -1,0 +1,4 @@
+.rule {
+    margin: 15px 0;
+    border-top: solid 2px var(--theme-primary);
+}

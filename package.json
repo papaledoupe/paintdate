@@ -1,0 +1,58 @@
+{
+  "private": true,
+  "name": "paintdate",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "preact build --no-prerender",
+    "serve": "sirv build --cors --single",
+    "dev": "preact watch",
+    "lint": "eslint src --max-warnings=0",
+    "test": "jest",
+    "test:coverage": "jest --collectCoverage",
+    "prepare": "husky install"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "preact",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "ignorePatterns": [
+      "build/"
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "off",
+      "@typescript-eslint/ban-ts-comment": "off"
+    }
+  },
+  "dependencies": {
+    "@tippyjs/react": "^4.2.6",
+    "mousetrap": "^1.6.5",
+    "preact": "^10.10.0",
+    "preact-feather": "^4.2.1",
+    "preact-render-to-string": "^5.2.1",
+    "preact-router": "^3.2.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-decorators": "^7.18.6",
+    "@types/enzyme": "^3.10.12",
+    "@types/jest": "^27.4.1",
+    "@types/mousetrap": "^1.6.9",
+    "@types/uuid": "^8.3.4",
+    "@types/wicg-file-system-access": "^2020.9.5",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^4.0.1",
+    "eslint": "^8.20.0",
+    "eslint-config-preact": "^1.3.0",
+    "husky": "^8.0.1",
+    "jest": "^27.5.1",
+    "jest-preset-preact": "^4.0.5",
+    "preact-cli": "^3.4.0",
+    "sirv-cli": "^2.0.2",
+    "typescript": "^4.8.2"
+  }
+}

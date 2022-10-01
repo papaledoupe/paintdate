@@ -1,0 +1,11 @@
+node_modules
+/build
+/*.log
+
+.DS_Store
+.idea
+*.iml
+
+coverage
+
+size-plugin.json

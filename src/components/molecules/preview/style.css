@@ -1,0 +1,14 @@
+.preview {
+    box-sizing: content-box;
+    overflow: hidden;
+    width: 400px;
+    aspect-ratio: 400/240;
+    border: 6px solid var(--theme-primary);
+    background: var(--theme-screen-white);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.raster {
+    position: relative;
+}

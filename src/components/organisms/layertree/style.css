@@ -1,0 +1,73 @@
+.header {
+	display: flex;
+	align-items: center;
+}
+.header h4 {
+	flex-grow: 1;
+}
+
+.globalActions {
+
+}
+
+.layer {
+	border: 3px solid var(--theme-primary);
+	background-color: var(--theme-primary);
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.layer.active {
+	background-color: var(--theme-highlight);
+}
+.layer input {
+	color: var(--theme-secondary);
+	border-bottom: 1px solid var(--theme-secondary);
+}
+.layer.active input {
+	color: var(--theme-primary);
+	border-bottom: 1px solid var(--theme-primary);
+}
+
+.layerHead {
+	padding: 5px;
+	display: flex;
+}
+.layerName {
+	flex-grow: 1;
+}
+.nameInput {
+	border: none;
+	width: calc(100% - 10px);
+	height: 100%;
+	background: none;
+}
+.layerActions {
+	flex-grow: 0;
+}
+
+.shapeRows {
+	color: var(--theme-secondary);
+	background-color: var(--theme-primary);
+}
+
+.shape {
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+}
+.shapeHead {
+	display: flex;
+	margin-bottom: 5px;
+	align-items: center;
+	font-weight: 500;
+}
+.shapeType {
+	font-size: small;
+	flex-grow: 1;
+}
+.shapeType span {
+	vertical-align: middle;
+}
+.shapeActions {
+	flex-grow: 0;
+}

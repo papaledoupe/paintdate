@@ -1,0 +1,106 @@
+.configItem {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: smaller;
+    min-height: 30px;
+}
+
+.configItem label:first-of-type {
+    margin-right: auto;
+    padding-right: 10px;
+}
+
+.configItem select {
+    color: var(--theme-secondary);
+    border: none;
+    border-bottom: 2px solid var(--theme-secondary);
+    background-color: var(--theme-primary);
+    padding: 2px 0;
+}
+
+.configItem input[type=checkbox]:checked {
+    accent-color: var(--theme-secondary);
+}
+.configItem input[type=checkbox]:not(:checked) {
+    position: relative;
+}
+.configItem input[type=checkbox]:not(:checked)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--theme-primary);
+    border: 2px solid var(--theme-secondary);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+.configItem input[type=checkbox]:not(:checked):hover::after {
+    cursor: pointer;
+    border: 2px solid var(--theme-highlight);
+}
+
+.configItem input[type=text], .configItem input[type=number] {
+    padding: 2px 0;
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+    border: none;
+    border-bottom: 2px solid var(--theme-secondary);
+}
+.configItem input[type=text]:hover, .configItem input[type=number]:hover {
+    color: var(--theme-highlight);
+    border-bottom-color: var(--theme-highlight);
+}
+
+.configItem.vector input {
+    width: 40px;
+}
+
+.configItem label.dimension {
+    padding-right: 5px;
+}
+
+.configItem button {
+    color: var(--theme-primary);
+    background-color: var(--theme-secondary);
+    border: 2px solid var(--theme-secondary);
+    border-radius: 5px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+}
+.configItem button:hover {
+    cursor: pointer;
+    border-color: var(--theme-highlight);
+}
+
+.colorOption {
+    box-shadow: 0 0 1px 1px var(--theme-shadow) inset;
+    width: 25px;
+    height: 25px;
+}
+.colorOption:not(:last-of-type) {
+    margin-right: 5px;
+}
+.colorOption.active {
+    border-color: var(--theme-highlight);
+}
+.colorOption:not(.active) {
+}
+.colorOption.black {
+    background-color: black;
+}
+.colorOption.white {
+    background-color: white;
+}
+
+button.shapeOption {
+    overflow: hidden;
+}
+button.shapeOption span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
