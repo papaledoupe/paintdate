@@ -4,16 +4,14 @@ import StackView, {StackScreen} from "../../molecules/stackView";
 import {EditorConfig} from "../../../config/editor";
 import {useRef} from "react";
 import {
-    CheckboxVariantConfigItem,
-    NumberVariantConfigItem,
-    SelectVariantConfigItem,
-    VectorVariantConfigItem
+    CheckboxConfigItem,
+    NumberConfigItem,
+    SelectConfigItem,
+    VectorConfigItem
 } from "../../molecules/configItem";
-import {themes, withScheme} from "../../theme";
-import TextButton from "../../atoms/textButton";
+import {themes} from "../../theme";
+import {InvertTextButton} from "../../atoms/textButton";
 import style from './style.css';
-
-const InvertTextButton = withScheme('secondary-on-primary', TextButton);
 
 export type Props = {
     config: EditorConfig
@@ -34,7 +32,7 @@ const EditorConfigDialog = ({close, config}: Props) => {
                         render({trail}) {
                             return (
                                 <StackScreen trail={trail}>
-                                    <SelectVariantConfigItem
+                                    <SelectConfigItem
                                         label='Theme'
                                         options={Object.entries(themes).map(([id, {name}]) => ({
                                             label: name,
@@ -43,17 +41,17 @@ const EditorConfigDialog = ({close, config}: Props) => {
                                         read={() => stagedConfig.theme}
                                         write={theme => stagedConfig.theme = theme}
                                     />
-                                    <NumberVariantConfigItem
+                                    <NumberConfigItem
                                         label='Scale'
                                         read={() => stagedConfig.scale}
                                         write={scale => { stagedConfig.scale = scale }}
                                     />
-                                    <VectorVariantConfigItem
+                                    <VectorConfigItem
                                         label='Grid size'
                                         read={() => stagedConfig.grid}
                                         write={grid => { stagedConfig.grid = grid }}
                                     />
-                                    <CheckboxVariantConfigItem
+                                    <CheckboxConfigItem
                                         label='Show coordinates'
                                         read={() => stagedConfig.showCoordinates}
                                         write={show => { stagedConfig.showCoordinates = show }}

@@ -54,6 +54,11 @@
     border-bottom-color: var(--theme-highlight);
 }
 
+.configItem input[type=text] {
+    flex-grow: 1;
+    max-width: 80%;
+}
+
 .configItem.vector input {
     width: 40px;
 }

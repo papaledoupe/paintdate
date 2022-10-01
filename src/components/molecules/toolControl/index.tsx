@@ -3,13 +3,13 @@ import style from "./style.css";
 import {Tool, ToolIcon, Variant} from "../../../model/tool";
 import {useCallback} from "react";
 import {
-    CheckboxVariantConfigItem,
-    ColorVariantConfigItem,
-    FillVariantConfigItem,
-    NumberVariantConfigItem,
-    OptionalFillVariantConfigItem,
-    OptionalStrokeVariantConfigItem,
-    StrokeVariantConfigItem
+    CheckboxConfigItem,
+    ColorConfigItem,
+    FillConfigItem,
+    NumberConfigItem,
+    OptionalFillConfigItem,
+    OptionalStrokeConfigItem,
+    StrokeConfigItem
 } from "../configItem";
 import {Move as MoveIcon} from "preact-feather/dist/icons/move";
 import {Edit2 as PencilIcon} from "preact-feather/dist/icons/edit-2";
@@ -86,24 +86,24 @@ export const VariantConfig = ({variant}: {variant: Variant}) => (
         {variant.configs?.map(configItem => {
             switch (configItem.kind) {
                 case 'color':
-                    return <ColorVariantConfigItem
+                    return <ColorConfigItem
                         read={() => configItem.read()}
                         write={opt => configItem.write(opt)}
                     />
                 case 'mask':
-                    return <CheckboxVariantConfigItem
+                    return <CheckboxConfigItem
                         label='Mask'
                         read={() => configItem.read()}
                         write={checked => configItem.write(checked)}
                     />
                 case 'blendMode':
-                    return <CheckboxVariantConfigItem
+                    return <CheckboxConfigItem
                         label='Invert'
                         read={() => configItem.read() === 'invert'}
                         write={checked => configItem.write(checked ? 'invert' : 'normal')}
                     />
                 case 'width':
-                    return <NumberVariantConfigItem
+                    return <NumberConfigItem
                         label='Width'
                         read={() => configItem.read()}
                         write={n => configItem.write(n)}
@@ -112,22 +112,22 @@ export const VariantConfig = ({variant}: {variant: Variant}) => (
                         max={999}
                     />
                 case 'fill':
-                    return <FillVariantConfigItem
+                    return <FillConfigItem
                         read={() => configItem.read()}
                         write={fill => configItem.write(fill)}
                     />
                 case 'optionalFill':
-                    return <OptionalFillVariantConfigItem
+                    return <OptionalFillConfigItem
                         read={() => configItem.read()}
                         write={fill => configItem.write(fill)}
                     />
                 case 'stroke':
-                    return <StrokeVariantConfigItem
+                    return <StrokeConfigItem
                         read={() => configItem.read()}
                         write={stroke => configItem.write(stroke)}
                     />
                 case 'optionalStroke':
-                    return <OptionalStrokeVariantConfigItem
+                    return <OptionalStrokeConfigItem
                         read={() => configItem.read()}
                         write={stroke => configItem.write(stroke)}
                     />

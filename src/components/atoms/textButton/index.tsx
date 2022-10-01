@@ -3,6 +3,7 @@ import {forwardRef} from "preact/compat";
 import Button, {ButtonProps} from "../button";
 import {dropKeys} from "../../../util/object";
 import style from './style.css';
+import {withScheme} from "../../theme";
 
 const smallSize = 11;
 const largeSize = 14;
@@ -33,3 +34,5 @@ const TextButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
     );
 });
 export default TextButton;
+
+export const InvertTextButton = withScheme('secondary-on-primary', TextButton);

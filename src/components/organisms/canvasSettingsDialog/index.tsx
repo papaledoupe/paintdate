@@ -2,13 +2,10 @@ import {h} from 'preact';
 import Dialog from "../../molecules/dialog";
 import StackView, {StackScreen} from "../../molecules/stackView";
 import {useRef} from "react";
-import {CheckboxVariantConfigItem, VectorVariantConfigItem} from "../../molecules/configItem";
+import {CheckboxConfigItem, VectorConfigItem} from "../../molecules/configItem";
 import {CanvasSettings} from "../../../model/canvas";
 import style from "../editorConfigDialog/style.css";
-import {withScheme} from "../../theme";
-import TextButton from "../../atoms/textButton";
-
-const InvertTextButton = withScheme('secondary-on-primary', TextButton);
+import {InvertTextButton} from "../../atoms/textButton";
 
 export type Props = {
     settings: CanvasSettings
@@ -29,7 +26,7 @@ const CanvasSettingsDialog = ({close, settings}: Props) => {
                         render({trail}) {
                             return (
                                 <StackScreen trail={trail}>
-                                    <VectorVariantConfigItem
+                                    <VectorConfigItem
                                         label='Size'
                                         xLabel={'W'}
                                         yLabel={'H'}
@@ -38,14 +35,14 @@ const CanvasSettingsDialog = ({close, settings}: Props) => {
                                             stagedSettings.size = size
                                         }}
                                     />
-                                    <CheckboxVariantConfigItem
+                                    <CheckboxConfigItem
                                         label='Automatically merge freeform shapes'
                                         read={() => stagedSettings.mergeFreeform}
                                         write={merge => {
                                             stagedSettings.mergeFreeform = merge
                                         }}
                                     />
-                                    <CheckboxVariantConfigItem
+                                    <CheckboxConfigItem
                                         label='Loop'
                                         read={() => stagedSettings.loop}
                                         write={loop => {

@@ -13,7 +13,7 @@ export type Props = {
     wrapperStyle?: object
 }
 
-const FillIcon = ({stroke, width = '24px', height = '24px', wrapperStyle = {}}: Props) => {
+const StrokeIcon = ({stroke, width = '24px', height = '24px', wrapperStyle = {}}: Props) => {
     let grid: Grid<Color> | undefined;
     if (stroke) {
         grid = new Grid<Color>({ size: v(16, 16) });
@@ -34,4 +34,4 @@ const FillIcon = ({stroke, width = '24px', height = '24px', wrapperStyle = {}}: 
         </div>
     );
 };
-export default FillIcon;
+export default StrokeIcon;

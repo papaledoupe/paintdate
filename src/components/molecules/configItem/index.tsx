@@ -11,7 +11,7 @@ import {v, Vector2} from "../../../model/space";
 import {Color} from "../../../model/pixel";
 import Button from "../../atoms/button";
 
-export const SelectVariantConfigItem = ({read, write, label, options}: {
+export const SelectConfigItem = ({read, write, label, options}: {
     label: string
     options: {label: string, value: string}[]
     read(): string
@@ -28,7 +28,7 @@ export const SelectVariantConfigItem = ({read, write, label, options}: {
     </div>
 );
 
-export const CheckboxVariantConfigItem = ({read, write, label}: {
+export const CheckboxConfigItem = ({read, write, label}: {
     label: string
     read(): boolean
     write(checked: boolean): void
@@ -43,7 +43,7 @@ export const CheckboxVariantConfigItem = ({read, write, label}: {
     </div>
 );
 
-export const NumberVariantConfigItem = ({read, write, label, max, min, step, size}: {
+export const NumberConfigItem = ({read, write, label, max, min, step, size}: {
     label: string
     max?: number
     min?: number
@@ -70,8 +70,23 @@ export const NumberVariantConfigItem = ({read, write, label, max, min, step, siz
     </div>
 );
 
+export const TextConfigItem = ({read, write, label}: {
+    label: string
+    read(): string
+    write(value: string): void
+}) => (
+    <div className={style.configItem}>
+        <label>{label}</label>
+        <input
+            type='text'
+            value={read()}
+            onChange={e => write(e.currentTarget.value)}
+        />
+    </div>
+);
 
-export const VectorVariantConfigItem = ({read, write, label, xLabel, yLabel, max, min, step, size}: {
+
+export const VectorConfigItem = ({read, write, label, xLabel, yLabel, max, min, step, size}: {
     label: string
     xLabel?: string
     yLabel?: string
@@ -117,7 +132,7 @@ export const VectorVariantConfigItem = ({read, write, label, xLabel, yLabel, max
     </div>
 );
 
-export const OptionalFillVariantConfigItem = ({ label = 'Fill', read, write, allowNone }: {
+export const OptionalFillConfigItem = ({ label = 'Fill', read, write, allowNone }: {
     label?: string
     allowNone?: boolean
     read(): Fill | null
@@ -143,15 +158,15 @@ export const OptionalFillVariantConfigItem = ({ label = 'Fill', read, write, all
         </div>
     );
 }
-export const FillVariantConfigItem = (props: {
+export const FillConfigItem = (props: {
     label?: string
     read(): Fill
     write(fill: Fill): void
 }) => {
-    return <OptionalFillVariantConfigItem {...props} allowNone={false} />
+    return <OptionalFillConfigItem {...props} allowNone={false} />
 }
 
-export const OptionalStrokeVariantConfigItem = ({ label = 'Stroke', read, write, allowNone }: {
+export const OptionalStrokeConfigItem = ({ label = 'Stroke', read, write, allowNone }: {
     label?: string
     allowNone?: boolean
     read(): Stroke | null
@@ -177,15 +192,15 @@ export const OptionalStrokeVariantConfigItem = ({ label = 'Stroke', read, write,
         </div>
     );
 }
-export const StrokeVariantConfigItem = (props: {
+export const StrokeConfigItem = (props: {
     label?: string
     read(): Stroke
     write(stroke: Stroke): void
 }) => {
-    return <OptionalStrokeVariantConfigItem {...props} allowNone={false} />
+    return <OptionalStrokeConfigItem {...props} allowNone={false} />
 }
 
-export const ColorVariantConfigItem = ({ label = 'Color', read, write }: {
+export const ColorConfigItem = ({ label = 'Color', read, write }: {
     label?: string
     read(): Color
     write(color: Color): void

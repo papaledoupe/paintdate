@@ -1,0 +1,3 @@
+.checkerboard {
+    background: repeating-conic-gradient(silver 0% 25%, lightgray 0% 50%) 50% / 20px 20px;
+}

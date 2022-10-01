@@ -1,0 +1,10 @@
+.submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.preview {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}

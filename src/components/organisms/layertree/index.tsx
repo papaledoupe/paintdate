@@ -39,10 +39,10 @@ import {ShapeOptions} from "../../../model/shape";
 import {isRect, Rect, RectOptions} from "../../../model/shapes/rect";
 import {isLine, Line, LineOptions} from "../../../model/shapes/line";
 import {
-    CheckboxVariantConfigItem,
-    OptionalFillVariantConfigItem,
-    OptionalStrokeVariantConfigItem, StrokeVariantConfigItem,
-    VectorVariantConfigItem
+    CheckboxConfigItem,
+    OptionalFillConfigItem,
+    OptionalStrokeConfigItem, StrokeConfigItem,
+    VectorConfigItem
 } from "../../molecules/configItem";
 import {Freeform, FreeformOptions, isFreeform} from '../../../model/shapes/freeform';
 import {v} from "../../../model/space";
@@ -144,32 +144,32 @@ const RectControls = ({rect, mask, alter}: {
     alter?: (options: ShapeAlterations<RectOptions>) => void
 }) => (
     <SimpleGrid columns={2}>
-        <OptionalFillVariantConfigItem
+        <OptionalFillConfigItem
             read={() => rect.fill}
             write={fill => alter?.({fill})}
         />
-        <OptionalStrokeVariantConfigItem
+        <OptionalStrokeConfigItem
             read={() => rect.stroke}
             write={stroke => alter?.({stroke})}
         />
-        <VectorVariantConfigItem
+        <VectorConfigItem
             label='Size'
             xLabel='w'
             yLabel='h'
             read={() => rect.size}
             write={size => alter?.({size})}
         />
-        <VectorVariantConfigItem
+        <VectorConfigItem
             label='Fill origin'
             read={() => rect.fillOrigin}
             write={fillOrigin => alter?.({fillOrigin})}
         />
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Invert'
             read={() => rect.mode === 'invert'}
             write={invert => alter?.({mode: invert ? 'invert' : 'normal'})}
         />
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Mask'
             read={() => mask}
             write={mask => alter?.({mask})}
@@ -183,23 +183,23 @@ const LineControls = ({line, mask, alter}: {
     alter?: (options: ShapeAlterations<LineOptions>) => void
 }) => (
     <SimpleGrid columns={2}>
-        <StrokeVariantConfigItem
+        <StrokeConfigItem
             read={() => line.stroke}
             write={stroke => alter?.({stroke})}
         />
-        <VectorVariantConfigItem
+        <VectorConfigItem
             label='Vector'
             read={() => line.vector}
             max={v(999, 999)}
             min={v(-999, -999)}
             write={vector => alter?.({vector})}
         />
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Invert'
             read={() => line.mode === 'invert'}
             write={invert => alter?.({mode: invert ? 'invert' : 'normal'})}
         />
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Mask'
             read={() => mask}
             write={mask => alter?.({mask})}
@@ -213,12 +213,12 @@ const FreeformControls = ({freeform, mask, alter}: {
     alter?: (options: ShapeAlterations<FreeformOptions>) => void
 }) => (
     <SimpleGrid columns={2}>
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Invert'
             read={() => freeform.mode === 'invert'}
             write={invert => alter?.({mode: invert ? 'invert' : 'normal'})}
         />
-        <CheckboxVariantConfigItem
+        <CheckboxConfigItem
             label='Mask'
             read={() => mask}
             write={mask => alter?.({mask})}

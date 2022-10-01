@@ -1,4 +1,7 @@
 import {v, Vector2} from "../model/space";
+import {Fill} from "../model/fill";
+import {createContext} from "preact";
+import {Stroke} from "../model/stroke";
 
 export type Keystrokes = {
     description: string
@@ -101,6 +104,8 @@ export type EditorConfig = {
     grid: Vector2
     showCoordinates: boolean
     theme: string
+    customFills: Fill[]
+    customStrokes: Stroke[]
 }
 export function newEditorConfigWithDefaults(overrides: Partial<EditorConfig> = {}): EditorConfig {
     return {
@@ -108,6 +113,17 @@ export function newEditorConfigWithDefaults(overrides: Partial<EditorConfig> = {
         grid: v(16, 16),
         showCoordinates: true,
         theme: 'playdate',
+        customFills: [],
+        customStrokes: [],
         ...overrides,
     }
 }
+
+export type EditorConfigContextType = {
+    config: EditorConfig
+    configure(changes: Partial<EditorConfig>): void
+}
+export const EditorConfigContext = createContext<EditorConfigContextType>({
+    config: newEditorConfigWithDefaults(),
+    configure() {/* no-op default */}
+});
