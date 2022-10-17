@@ -374,6 +374,27 @@ describe('model', () => {
                     expect(grid.get(v(100, -200))).toBeNull();
                 });
             });
+
+            describe('cropped', () => {
+
+                it('returns grid with empty rows and columns removed', () => {
+                    const grid = new Grid<number>({ size: v(5, 5) });
+                    grid.put(v(1, 1), 1);
+                    grid.put(v(3, 3), 2);
+                    const cropped = grid.cropped();
+                    expect(cropped.size).toEqual(v(3, 3));
+                    expect(cropped.get(v(0, 0))).toEqual(1);
+                    expect(cropped.get(v(2, 2))).toEqual(2);
+                    expect(cropped.cells.filter(c => c.value !== null).length).toEqual(2);
+                });
+
+                it('returns zero grid when no elements', () => {
+                    const grid = new Grid<number>({ size: v(5, 5) });
+                    const cropped = grid.cropped();
+                    expect(cropped.size).toEqual(v(0, 0));
+                });
+
+            });
         });
 
     });

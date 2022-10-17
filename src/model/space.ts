@@ -277,6 +277,27 @@ export class Grid<T> {
         }
         return copy;
     }
+
+    cropped(): Grid<T> {
+        let minX = Infinity, minY = Infinity, maxX = 0, maxY = 0;
+        this.cells.filter(c => c.value !== null).forEach(({pos}) => {
+            minX = Math.min(pos.x, minX);
+            minY = Math.min(pos.y, minY);
+            maxX = Math.max(pos.x, maxX);
+            maxY = Math.max(pos.y, maxY);
+        });
+        if (!isFinite(minX) || !isFinite(minY)) {
+            return new Grid<T>({ size: v(0, 0), loop: this.loop });
+        }
+        const min = v(minX, minY);
+        const max = v(maxX, maxY);
+        const size = max.sub(min).add(v(1, 1));
+        const cropped = new Grid<T>({ size, loop: this.loop });
+        this.cells.filter(c => c.value !== null).forEach(({pos, value}) => {
+            cropped.put(pos.sub(min), value);
+        });
+        return cropped;
+    }
 }
 
 export type Bounds = [fromInclusive: Vector2, toInclusive: Vector2]

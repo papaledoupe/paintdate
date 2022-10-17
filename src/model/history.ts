@@ -215,7 +215,11 @@ export class History {
 
     async export({ fileExt, fileType }: ExportOptions) {
         const exportFile = await newUnsavedFile(fileExt);
-        const dataUrl = gridToImageData(fileType, this.canvas.flatGrid())
+        let grid = this.canvas.flatGrid();
+        if (this.editorConfig.cropExports) {
+            grid = grid.cropped();
+        }
+        const dataUrl = gridToImageData(fileType, grid)
         // this is an amusing way to convert a data URL to file data...
         exportFile.contents = await (await fetch(dataUrl)).blob();
         await exportFile.save();

@@ -56,6 +56,11 @@ const EditorConfigDialog = ({close, config}: Props) => {
                                         read={() => stagedConfig.showCoordinates}
                                         write={show => { stagedConfig.showCoordinates = show }}
                                     />
+                                    <CheckboxConfigItem
+                                        label='Crop exports'
+                                        read={() => stagedConfig.cropExports}
+                                        write={crop => { stagedConfig.cropExports = crop }}
+                                    />
                                     <div className={style.save}>
                                         <InvertTextButton
                                             type='border'

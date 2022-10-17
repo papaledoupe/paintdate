@@ -24,6 +24,8 @@ export function drawToCanvas(context: CanvasRenderingContext2D, grid: Grid<Color
 
 export function gridToImageData(type: string, grid: Grid<Color>, pixels?: Pixel[]): string {
     const canvas = document.createElement('canvas');
+    canvas.width = grid.size.x;
+    canvas.height = grid.size.y;
     const ctx = canvas.getContext('2d')
     if (ctx === null) {
         throw new Error('failed to get canvas 2d context');

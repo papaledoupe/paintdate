@@ -106,6 +106,7 @@ export type EditorConfig = {
     theme: string
     customFills: Fill[]
     customStrokes: Stroke[]
+    cropExports: boolean
 }
 export function newEditorConfigWithDefaults(overrides: Partial<EditorConfig> = {}): EditorConfig {
     return {
@@ -115,6 +116,7 @@ export function newEditorConfigWithDefaults(overrides: Partial<EditorConfig> = {
         theme: 'playdate',
         customFills: [],
         customStrokes: [],
+        cropExports: true,
         ...overrides,
     }
 }
